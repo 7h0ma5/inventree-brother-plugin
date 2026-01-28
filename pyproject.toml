@@ -1,17 +1,40 @@
-[build-system]
-requires = ["setuptools", "wheel", "twine"]
-build-backend = "setuptools.build_meta"
+[project]
+# PEP 621 project metadata
+# See https://www.python.org/dev/peps/pep-0621/
+name = "inventree-brother-plugin"
+version = "2.0.5"
+description = "Brother label printer plugin for InvenTree"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [
+  { name = "Oliver Walters", email = "oliver.henry.walters@gmail.com" },
+]
+keywords = ["inventree label printer printing inventory"]
+classifiers = [
+  "Framework :: InvenTree",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+]
+dependencies = [
+  "brother-ql-inventree @ git+https://github.com/7h0ma5/brother_ql-inventree.git@master",
+]
+
+[project.urls]
+Homepage = "https://github.com/inventree/inventree-brother-plugin"
+
+[project.entry-points.inventree_plugins]
+BrotherLabeLPlugin = "inventree_brother.brother_plugin:BrotherLabelPlugin"
 
 [tool.ruff]
 exclude = [
-    ".git",
-    "__pycache__",
-    "test.py",
-    "tests",
-    "venv",
-    "env",
-    ".venv",
-    ".env",
+  ".git",
+  "__pycache__",
+  "test.py",
+  "tests",
+  "venv",
+  "env",
+  ".venv",
+  ".env",
 ]
-
-src=["inventree_brother"]
+src = ["inventree_brother"]
